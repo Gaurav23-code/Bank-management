@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bank Management System</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+
+{% if action == "home" %}
+<h1>Bank Management System</h1>
+<a href="/create_account">Create Account</a>
+<a href="/deposit">Deposit Money</a>
+<a href="/withdraw">Withdraw Money</a>
+<a href="/balance">Check Balance</a>
+<a href="/delete_account">Delete Account</a>
+<hr>
+<a href="/staff_login">Staff Login</a>
+{% endif %}
+
+{% set forms = {
+"create_account": ["Name","Email","Initial Balance"],
+"deposit": ["Account Number","Amount"],
+"withdraw": ["Account Number","Amount"],
+"balance": ["Account Number"],
+"delete_account": ["Account Number"]
+} %}
+
+{% if action in forms %}
+<h2>{{ action.replace("_"," ").title() }}</h2>
+<form method="post">
+{% for field in forms[action] %}
+<input type="{{ 'email' if 'Email' in field else 'number' }}" name="{{ field.lower().replace(' ','_') }}" placeholder="{{ field }}" required>
+{% endfor %}
+<button type="submit">{{ action.replace("_"," ").title() }}</button>
+</form>
+<a href="/">Back</a>
+{% endif %}
+
+{% if action == "account_created" %}
+<h2>Account Created Successfully</h2>
+<p>Your Account Number:</p><h1>{{ account_no }}</h1>
+<a href="/">Back to Home</a>
+{% endif %}
+
+{% if action == "balance" and balance is not none %}
+<h3>Balance: {{ balance }}</h3>
+{% endif %}
+
+<hr>
+<!-- Download Project Report link -->
+<a href="/download_report" style="color:#4a90e2; font-weight:bold;">Download Project Report</a>
+
+</div>
+</body>
+</html>

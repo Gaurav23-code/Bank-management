@@ -1,0 +1,144 @@
+/* Body background with gradient */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #fceabb, #f8b500, #ff7e5f);
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container card – now bigger */
+.container {
+    width: 550px;          /* increased from 450px */
+    margin: 60px auto;
+    background: white;
+    padding: 45px 35px;    /* increased padding */
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating balloons */
+.container::before, .container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 192, 203, 0.3);
+    width: 120px;
+    height: 120px;
+    top: -60px;
+    left: -60px;
+    animation: float 6s ease-in-out infinite alternate;
+}
+
+.container::after {
+    background: rgba(135, 206, 250, 0.3);
+    top: -80px;
+    right: -80px;
+    left: auto;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(20px) translateX(20px); }
+}
+
+/* Headings */
+h1 {
+    font-size: 40px;          /* bigger font */
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #ff7e5f;
+    box-shadow: 0 0 8px rgba(255,126,95,0.6);
+}
+
+/* Buttons */
+button {
+    padding: 12px 25px;
+    margin-top: 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    display: block;
+    margin-top: 15px;
+    color: #ff7e5f;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #feb47b;
+    text-decoration: underline;
+}
+
+/* Table for staff dashboard */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+th {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #fff3e0;
+}
+
+tr:hover {
+    background-color: #ffe0b2;
+    transition: 0.3s;
+}

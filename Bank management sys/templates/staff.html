@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Section</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    {% if action == "login" %}
+        <h2>Staff Login</h2>
+        <form method="post">
+            <input type="password" name="password" placeholder="Enter Staff Password" required>
+            <button type="submit">Login</button>
+        </form>
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+        <a href="/">Back</a>
+    {% endif %}
+
+    {% if action == "dashboard" %}
+        <h2>All Bank Accounts</h2>
+        <table>
+            <tr>
+                <th>Account No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Balance</th>
+            </tr>
+            {% for acc in accounts %}
+            <tr>
+                <td>{{ acc[0] }}</td>
+                <td>{{ acc[1] }}</td>
+                <td>{{ acc[2] }}</td>
+                <td>{{ acc[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/">Back to Home</a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
