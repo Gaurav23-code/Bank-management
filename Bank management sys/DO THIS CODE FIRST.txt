@@ -18,6 +18,3 @@ CREATE TABLE IF NOT EXISTS staff (
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(50) NOT NULL
 );
-
--- Optional: Insert default admin for staff login
-INSERT INTO staff (username, password) VALUES ('admin', 'admin123');
